@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard Admin - Sistem Informasi Parkir Kampus Otomatis</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .primary-blue {
+      --tw-bg-opacity: 1;
+      background-color: rgba(42, 92, 170, var(--tw-bg-opacity));
+    }
+    .primary-green {
+      --tw-bg-opacity: 1;
+      background-color: rgba(76, 175, 80, var(--tw-bg-opacity));
+    }
+    .text-primary-blue {
+      color: #2A5CAA;
+    }
+    .text-primary-green {
+      color: #4CAF50;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto flex items-center justify-between p-4">
+      <div class="flex items-center space-x-3">
+        <img src="https://via.placeholder.com/50x50.png?text=Logo" alt="Logo Kampus" class="w-12 h-12" />
+        <span class="font-semibold text-xl text-primary-blue">Parkir Kampus</span>
+      </div>
+      <nav>
+        <ul class="flex space-x-6 items-center">
+          <li class="relative group">
+            <button class="text-gray-700 hover:text-primary-blue font-medium focus:outline-none">
+              Fitur <i class="fas fa-chevron-down ml-1 text-sm"></i>
+            </button>
+            <ul class="absolute hidden group-hover:block bg-white shadow-lg rounded mt-2 py-2 w-40 z-10">
+              <li><a href="registration.html" class="block px-4 py-2 hover:bg-primary-blue hover:text-white">Registrasi</a></li>
+              <li><a href="user-dashboard.html" class="block px-4 py-2 hover:bg-primary-blue hover:text-white">Dashboard Pengguna</a></li>
+              <li><a href="admin-dashboard.html" class="block px-4 py-2 hover:bg-primary-blue hover:text-white">Dashboard Admin</a></li>
+            </ul>
+          </li>
+          <li><a href="registration.html" class="text-primary-green font-semibold hover:underline">Registrasi</a></li>
+          <li><a href="#" class="text-primary-green font-semibold hover:underline">Login</a></li>
+          <li><a href="user-dashboard.html" class="text-primary-green font-semibold hover:underline">Lihat Riwayat</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow container mx-auto px-4 py-12 max-w-6xl">
+    <h1 class="text-3xl font-semibold text-primary-blue mb-8 text-center">Dashboard Admin</h1>
+
+    <!-- Real-Time Parking Map -->
+    <section class="mb-12 bg-white shadow-md rounded p-6">
+      <h2 class="text-2xl font-semibold mb-4">Monitoring Real-Time</h2>
+      <div class="w-full h-64 bg-gray-200 rounded flex items-center justify-center text-gray-500">
+        <i class="fas fa-map-marker-alt fa-3x"></i>
+        <span class="ml-4">Peta slot parkir akan ditampilkan di sini (placeholder)</span>
+      </div>
+    </section>
+
+    <!-- Occupancy Chart -->
+    <section class="mb-12 bg-white shadow-md rounded p-6">
+      <h2 class="text-2xl font-semibold mb-4">Grafik Okupansi Harian</h2>
+      <div class="w-full h-64 bg-gray-200 rounded flex items-center justify-center text-gray-500">
+        <i class="fas fa-chart-bar fa-3x"></i>
+        <span class="ml-4">Grafik okupansi akan ditampilkan di sini (placeholder)</span>
+      </div>
+    </section>
+
+    <!-- User Management -->
+    <section class="bg-white shadow-md rounded p-6">
+      <h2 class="text-2xl font-semibold mb-4">Manajemen Pengguna</h2>
+      <table class="w-full table-auto border-collapse border border-gray-300">
+        <thead>
+          <tr class="bg-primary-blue text-white">
+            <th class="border border-gray-300 px-4 py-2 text-left">Nama Pengguna</th>
+            <th class="border border-gray-300 px-4 py-2 text-left">Email</th>
+            <th class="border border-gray-300 px-4 py-2 text-left">Status</th>
+            <th class="border border-gray-300 px-4 py-2 text-left">Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2">John Doe</td>
+            <td class="border border-gray-300 px-4 py-2">john.doe@example.com</td>
+            <td class="border border-gray-300 px-4 py-2 text-primary-green font-semibold">Aktif</td>
+            <td class="border border-gray-300 px-4 py-2">
+              <button class="text-red-600 hover:underline mr-2 blockBtn">Blokir</button>
+              <button class="text-primary-blue hover:underline mr-2 resetBtn">Reset Password</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2">Jane Smith</td>
+            <td class="border border-gray-300 px-4 py-2">jane.smith@example.com</td>
+            <td class="border border-gray-300 px-4 py-2 text-red-600 font-semibold">Diblokir</td>
+            <td class="border border-gray-300 px-4 py-2">
+              <button class="text-green-600 hover:underline mr-2 unblockBtn">Aktifkan</button>
+              <button class="text-primary-blue hover:underline mr-2 resetBtn">Reset Password</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script>
+    // Placeholder for user management actions
+    document.querySelectorAll('.blockBtn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        alert('Fungsi blokir pengguna belum diimplementasikan.');
+      });
+    });
+    document.querySelectorAll('.unblockBtn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        alert('Fungsi aktifkan pengguna belum diimplementasikan.');
+      });
+    });
+    document.querySelectorAll('.resetBtn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        alert('Fungsi reset password belum diimplementasikan.');
+      });
+    });
+  </script>
+
+</body>
+</html>
