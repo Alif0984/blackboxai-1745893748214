@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registrasi - Sistem Informasi Parkir Kampus Otomatis</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .primary-blue {
+      --tw-bg-opacity: 1;
+      background-color: rgba(42, 92, 170, var(--tw-bg-opacity));
+    }
+    .primary-green {
+      --tw-bg-opacity: 1;
+      background-color: rgba(76, 175, 80, var(--tw-bg-opacity));
+    }
+    .text-primary-blue {
+      color: #2A5CAA;
+    }
+    .text-primary-green {
+      color: #4CAF50;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto flex items-center justify-between p-4">
+      <div class="flex items-center space-x-3">
+        <img src="https://via.placeholder.com/50x50.png?text=Logo" alt="Logo Kampus" class="w-12 h-12" />
+        <span class="font-semibold text-xl text-primary-blue">Parkir Kampus</span>
+      </div>
+      <nav>
+        <ul class="flex space-x-6 items-center">
+          <li class="relative group">
+            <button class="text-gray-700 hover:text-primary-blue font-medium focus:outline-none">
+              Fitur <i class="fas fa-chevron-down ml-1 text-sm"></i>
+            </button>
+            <ul class="absolute hidden group-hover:block bg-white shadow-lg rounded mt-2 py-2 w-40 z-10">
+              <li><a href="registration.html" class="block px-4 py-2 hover:bg-primary-blue hover:text-white">Registrasi</a></li>
+              <li><a href="user-dashboard.html" class="block px-4 py-2 hover:bg-primary-blue hover:text-white">Dashboard Pengguna</a></li>
+              <li><a href="admin-dashboard.html" class="block px-4 py-2 hover:bg-primary-blue hover:text-white">Dashboard Admin</a></li>
+            </ul>
+          </li>
+          <li><a href="registration.html" class="text-primary-green font-semibold hover:underline">Registrasi</a></li>
+          <li><a href="#" class="text-primary-green font-semibold hover:underline">Login</a></li>
+          <li><a href="user-dashboard.html" class="text-primary-green font-semibold hover:underline">Lihat Riwayat</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Registration Form -->
+  <main class="flex-grow container mx-auto px-4 py-12 max-w-lg">
+    <h1 class="text-3xl font-semibold text-primary-blue mb-8 text-center">Form Registrasi Parkir</h1>
+    <form class="bg-white shadow-md rounded px-8 py-8" id="registrationForm" novalidate>
+      <div class="mb-6">
+        <label for="nim" class="block text-gray-700 font-semibold mb-2">NIM</label>
+        <input type="text" id="nim" name="nim" required class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-blue" placeholder="Masukkan NIM" />
+      </div>
+      <div class="mb-6">
+        <label for="phone" class="block text-gray-700 font-semibold mb-2">No HP</label>
+        <input type="tel" id="phone" name="phone" required class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-blue" placeholder="Masukkan No HP" />
+      </div>
+      <div class="mb-6">
+        <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
+        <input type="email" id="email" name="email" required class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-blue" placeholder="Masukkan Email" />
+      </div>
+      <div class="mb-6">
+        <label for="sim" class="block text-gray-700 font-semibold mb-2">Upload SIM</label>
+        <input type="file" id="sim" name="sim" accept="image/*,application/pdf" required class="w-full" />
+      </div>
+      <div class="mb-6">
+        <label for="plate" class="block text-gray-700 font-semibold mb-2">Plat Nomor Kendaraan</label>
+        <input type="text" id="plate" name="plate" required class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-blue" placeholder="Masukkan Plat Nomor" />
+      </div>
+      <button type="submit" class="w-full bg-primary-green hover:bg-green-600 text-white font-semibold py-3 rounded transition duration-300">Daftar</button>
+    </form>
+
+    <!-- Notification Messages -->
+    <div id="notification" class="mt-6 hidden p-4 rounded text-white font-semibold"></div>
+  </main>
+
+  <script>
+    const form = document.getElementById('registrationForm');
+    const notification = document.getElementById('notification');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Simple form validation
+      if (!form.checkValidity()) {
+        notification.textContent = 'Mohon lengkapi semua field dengan benar.';
+        notification.className = 'mt-6 p-4 rounded bg-red-600 text-white font-semibold';
+        notification.style.display = 'block';
+        return;
+      }
+
+      // Simulate successful submission
+      notification.textContent = 'Registrasi berhasil! Terima kasih.';
+      notification.className = 'mt-6 p-4 rounded bg-green-600 text-white font-semibold';
+      notification.style.display = 'block';
+
+      // Reset form
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
